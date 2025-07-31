@@ -1,0 +1,6 @@
+{
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true,
+    "files.refactoring.autoSave": true,
+    "files.autoSaveDelay": 10000
+}
