@@ -6,6 +6,7 @@ import Watch from './pages/Watch';
 
 const App = () => {
   return (
+    // <BrowserRouter basename="/youtube-clone">
     <BrowserRouter basename="/youtube-clone">
       <Routes>
         <Route path='/' element={<Home />} />

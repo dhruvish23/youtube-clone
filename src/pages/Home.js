@@ -22,7 +22,7 @@ const Home = () => {
     dispatch(getHomePageVideos(false)).finally(() => { NProgress.done(); });
   }, [dispatch]);
 
-  return (
+  return (  
     <div className='h-screen flex flex-col'>
       <div style={{ height: "7.5vh" }}>
         <Navbar />

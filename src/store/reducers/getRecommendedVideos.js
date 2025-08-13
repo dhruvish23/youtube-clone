@@ -35,7 +35,7 @@ export const getRecommendedVideos = createAsyncThunk(
             }
 
             // Approach 1: Search for videos from the same channel
-            const searchUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=25&key=${API_KEY}`;
+            const searchUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&chart=mostPopular&regionCode=IN&videoId=${videoId}&type=video&maxResults=100&key=${API_KEY}`;
             console.log('Search URL:', searchUrl);
 
             const response = await axios.get(searchUrl);
@@ -46,7 +46,7 @@ export const getRecommendedVideos = createAsyncThunk(
             if (items.length === 0) {
 
                 // Fallback: Get popular videos
-                const fallbackUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=US&maxResults=25&key=${API_KEY}`;
+                const fallbackUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=IN&maxResults=100&key=${API_KEY}`;
                 console.log('Fallback URL:', fallbackUrl);
 
                 const fallbackResponse = await axios.get(fallbackUrl);

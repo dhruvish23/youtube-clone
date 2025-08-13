@@ -3,13 +3,23 @@ import { GoHome } from "react-icons/go";
 import { SiYoutubeshorts } from "react-icons/si";
 import { MdOutlineSubscriptions } from "react-icons/md";
 import { LiaDownloadSolid } from "react-icons/lia";
-import { useAppSelector } from '../hooks/useApp';
+import { useAppSelector, useAppDispatch } from '../hooks/useApp';
+import { useNavigate } from 'react-router-dom';
+import { clearSearchTerm } from '../features/youtube/youtubeSlice';
 
 const Sidebar = () => {
     const sidebarCollapsed = useAppSelector((state) => state.youtube.sidebarCollapsed);
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
+    const handleHomeNavigation = () => {
+        // Clear search term and navigate to home
+        dispatch(clearSearchTerm());
+        navigate('/');
+    }
 
     const mainItems = [
-        { icon: GoHome, text: "Home", active: true },
+        { icon: GoHome, text: "Home", active: true, onClick: handleHomeNavigation },
         { icon: SiYoutubeshorts, text: "Shorts" },
         { icon: MdOutlineSubscriptions, text: "Subscriptions" },
     ];
@@ -26,6 +36,7 @@ const Sidebar = () => {
                     {mainItems.map((item, index) => (
                         <div
                             key={index}
+                            onClick={item.onClick} // Will only fire if defined
                             className={`flex flex-col items-center justify-center w-16 h-16 rounded-lg cursor-pointer hover:bg-zinc-700 transition-colors ${item.active ? 'bg-zinc-700' : ''}`}
                         >
                             <item.icon className="text-2xl mb-1" />
@@ -46,6 +57,7 @@ const Sidebar = () => {
                     {mainItems.map((item, index) => (
                         <div
                             key={index}
+                            onClick={item.onClick}
                             className={`flex items-center gap-5 hover:bg-zinc-700 duration-300 rounded-xl p-2 cursor-pointer ${item.active ? 'bg-zinc-700' : ''}`}
                         >
                             <item.icon className="text-xl" />
