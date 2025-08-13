@@ -16,19 +16,21 @@ export default function Card({ data }) {
 
     return (
         <div className="flex flex-col gap-3 transition-all duration-300">
-            <div className='relative'>
-                <span className={`absolute bottom-2 right-2 text-sm bg-gray-900 px-2 py-0.5 z-10 rounded ${sidebarCollapsed ? 'text-base px-3 py-1' : 'text-sm px-2 py-0.5'}`}>
-                    {data.videoDuration}
-                </span>
-                <div onClick={handleVideoClick}>
-                    <img
-                        src={data.videoThumbnail}
-                        alt="Thumbnail"
-                        className={`w-full rounded-lg hover:scale-105 transition-transform cursor-pointer ${sidebarCollapsed
-                            ? 'h-48 sm:h-52 md:h-56'
-                            : 'h-44 sm:h-48 md:h-52'
-                            }`}
-                    />
+            <div>
+                <div >
+                    <span className={`absolute bottom-2 right-2 text-sm bg-gray-900 px-2 py-0.5 z-10 rounded ${sidebarCollapsed ? 'text-base px-3 py-1' : 'text-sm px-2 py-0.5'}`}>
+                        {data.videoDuration}
+                    </span>
+                    <div onClick={handleVideoClick}>
+                        <img
+                            src={data.videoThumbnail}
+                            alt="Thumbnail"
+                            className={`w-full rounded-lg hover:scale-105 transition-transform cursor-pointer ${sidebarCollapsed
+                                ? 'h-48 sm:h-52 md:h-56'
+                                : 'h-44 sm:h-48 md:h-52'
+                                }`}
+                        />
+                    </div>
                 </div>
             </div>
             <div className='flex gap-3'>
