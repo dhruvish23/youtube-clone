@@ -17,7 +17,7 @@ export default function Card({ data }) {
     return (
         <div className="flex flex-col gap-3 transition-all duration-300">
             <div>
-                <div >
+                <div className='relative'>
                     <span className={`absolute bottom-2 right-2 text-sm bg-gray-900 px-2 py-0.5 z-10 rounded ${sidebarCollapsed ? 'text-base px-3 py-1' : 'text-sm px-2 py-0.5'}`}>
                         {data.videoDuration}
                     </span>
